@@ -45,7 +45,7 @@ const Listings = () => {
               key={index}
               href={`/assets/${item.assetContractAddress}/${item.id}`}
             >
-              <NFTCard />
+              <NFTCard listing={item} />
             </Link>
           ))}
         </>
