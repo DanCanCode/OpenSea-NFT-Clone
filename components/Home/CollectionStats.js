@@ -4,7 +4,7 @@ const style = {
   wrapper: `grid grid-cols-2 rounded-xl border md:grid-cols-4 md:divide-x`,
   statContainer: `flex flex-col items-center justify-center px-8 py-4 md:border-0`,
   statWithEthContainer: `flex items-center space-x-1`,
-  statItem: `text-2xl font-bold text-white`,
+  statItem: `text-2xl font-bold `,
   statTitle: `text-sm text-gray-400`,
 };
 

@@ -1,69 +1,69 @@
-import { useState, useEffect } from 'react'
-import Logo from './Logo'
+import { useState, useEffect } from "react";
+import Logo from "./Logo";
 import {
   SearchIcon,
   MenuIcon,
   CreditCardIcon,
   MoonIcon,
   SunIcon,
-} from '@heroicons/react/outline'
-import { UserCircleIcon } from '@heroicons/react/solid'
-import SearchInput from './SearchInput'
-import NavMenus from './NavMenus'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
+} from "@heroicons/react/outline";
+import { UserCircleIcon } from "@heroicons/react/solid";
+import SearchInput from "./SearchInput";
+import NavMenus from "./NavMenus";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  const { systemTheme, theme, setTheme } = useTheme()
+  const { systemTheme, theme, setTheme } = useTheme();
 
   const renderThemeChanger = () => {
-    if (!mounted) return null
+    if (!mounted) return null;
 
-    const currentTheme = theme === 'system' ? systemTheme : theme
+    const currentTheme = theme === "system" ? systemTheme : theme;
 
-    if (currentTheme === 'dark') {
+    if (currentTheme === "dark") {
       return (
         <MoonIcon
           className={style.themeSwitcher}
-          role='button'
-          onClick={() => setTheme('light')}
+          role="button"
+          onClick={() => setTheme("light")}
         />
-      )
+      );
     } else {
       return (
         <SunIcon
           className={style.themeSwitcher}
-          role='button'
-          onClick={() => setTheme('dark')}
+          role="button"
+          onClick={() => setTheme("dark")}
         />
-      )
+      );
     }
-  }
+  };
 
   const menus = [
     {
-      name: 'Explore',
-      href: '#',
+      name: "Explore",
+      href: "#",
     },
     {
-      name: 'Stats',
-      href: '#',
+      name: "Stats",
+      href: "#",
     },
     {
-      name: 'Resources',
-      href: '#',
+      name: "Resources",
+      href: "#",
     },
     {
-      name: 'Create',
-      href: '#',
+      name: "Create",
+      href: "#",
     },
-  ]
+  ];
 
   const style = {
     themeSwitcher: `h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300`,
@@ -76,15 +76,13 @@ const Navbar = () => {
     desktopIcons: `hidden lg:block`,
     mobileIcons: `sm:hidden`,
     tabletIcons: `lg:hidden`,
-  }
+  };
 
   return (
     <header className={style.wrapper}>
       <div className={style.logoContainer}>
-        <Link href='/'>
-          <a>
-            <Logo />
-          </a>
+        <Link href="/">
+          <Logo />
         </Link>
       </div>
 
@@ -104,7 +102,7 @@ const Navbar = () => {
         <MenuIcon className={`${style.icons} ${style.tabletIcons}`} />
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

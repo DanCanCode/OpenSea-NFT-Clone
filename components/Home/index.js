@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useAddress } from "@thirdweb-dev/react";
 import { MdVerified } from "react-icons/md";
-// import TopNavbarLayout from '../../layouts/TopNavbarLayout'
+import TopNavbarLayout from "../../layouts/TopNavbarLayout";
 import CollectionStats from "./CollectionStats";
 import { collectionData } from "../../static/collections";
 import Listings from "./Listings";
@@ -47,56 +47,56 @@ export default function Home() {
 
   return (
     <div>
-      {/* <TopNavbarLayout> */}
-      <div className={style.wrapper}>
-        <div className={style.container}>
-          <div className={style.bannerContainer}>
-            <Image
-              className={style.banner}
-              src={collection?.banner_image_url}
-              layout="fill"
-              alt="banner"
-            />
-          </div>
+      <TopNavbarLayout>
+        <div className={style.wrapper}>
+          <div className={style.container}>
+            <div className={style.bannerContainer}>
+              <Image
+                className={style.banner}
+                src={collection?.banner_image_url}
+                layout="fill"
+                alt="banner"
+              />
+            </div>
 
-          <div className={style.collectionInfoWrapper}>
-            <div className={style.collectionInfoContainer}>
-              <div className={style.collectionLogoContainer}>
-                <Image
-                  className={style.collectionLogo}
-                  src={collection?.image_url}
-                  height={128}
-                  width={128}
-                  alt="logo"
-                />
-              </div>
-
-              <div className={style.collectionInfo}>
-                <div className={style.title}>{collection?.name}</div>
-
-                <div className={style.creatorInfoContainer}>
-                  <div className={style.creator}>
-                    Created by{" "}
-                    <span className={style.creatorName}>
-                      {collection?.creator}
-                    </span>
-                  </div>
-                  <MdVerified className={style.verified} />
+            <div className={style.collectionInfoWrapper}>
+              <div className={style.collectionInfoContainer}>
+                <div className={style.collectionLogoContainer}>
+                  <Image
+                    className={style.collectionLogo}
+                    src={collection?.image_url}
+                    height={128}
+                    width={128}
+                    alt="logo"
+                  />
                 </div>
-              </div>
 
-              <CollectionStats stats={collection?.stats} />
+                <div className={style.collectionInfo}>
+                  <div className={style.title}>{collection?.name}</div>
 
-              <div className={style.descriptionContainer}>
-                {collection?.description}
+                  <div className={style.creatorInfoContainer}>
+                    <div className={style.creator}>
+                      Created by{" "}
+                      <span className={style.creatorName}>
+                        {collection?.creator}
+                      </span>
+                    </div>
+                    <MdVerified className={style.verified} />
+                  </div>
+                </div>
+
+                <CollectionStats stats={collection?.stats} />
+
+                <div className={style.descriptionContainer}>
+                  {collection?.description}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <Listings />
-      </div>
-      {/* </TopNavbarLayout> */}
+          <Listings />
+        </div>
+      </TopNavbarLayout>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+import { ThemeProvider } from "next-themes";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -10,7 +11,9 @@ export default function App({ Component, pageProps }) {
           "https://goerli.infura.io/v3/1ad23bb5016a4630aa6141ed368aa603",
       }}
     >
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </ThirdwebProvider>
   );
 }
