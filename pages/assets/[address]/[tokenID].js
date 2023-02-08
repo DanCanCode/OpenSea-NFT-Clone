@@ -5,14 +5,15 @@ import { BigNumber } from "ethers";
 import TopNavbarLayout from "../../../layouts/TopNavbarLayout";
 import NFTImage from "../../../components/NFTDetails/NFTImage";
 import NFTSalesInfo from "../../../components/NFTDetails/NFTSalesInfo";
+import NFTDetails from "../../../components/NFTDetails/NFTDetails";
 
 const style = {
-  wrapper: `` /*`h-screen mx-auto flex max-w-2xl`*/,
-  nftContainer: `` /*`flex flex-row lg:flex-col`*/,
-  leftContainer: `` /*`flex flex-col space-y-4`*/,
-  leftElement: `` /*`hidden lg:block`*/,
-  rightContainer: `` /*`flex flex-1 flex-col`*/,
-  buyoutContainer: `` /*`flex-1`*/,
+  wrapper: `h-screen mx-auto flex max-w-2xl flex-col space-y-4 py-4 dark:bg-[#202226] lg:max-w-none lg:py-8 lg:px-24`,
+  nftContainer: `flex flex-col lg:flex-row lg:space-x-4`,
+  leftContainer: `flex flex-col space-y-4`,
+  leftElement: `hidden lg:block`,
+  rightContainer: `flex flex-1 flex-col space-y-4`,
+  buyoutContainer: `flex-1`,
 };
 
 const NFTPage = () => {
@@ -64,7 +65,9 @@ const NFTPage = () => {
                 <NFTImage image={listing?.asset?.image} />
               </div>
 
-              <div className={style.leftElement}>{/* <NFTDetails/> */}</div>
+              <div className={style.leftElement}>
+                <NFTDetails />
+              </div>
             </div>
 
             <div className={style.rightContainer}>
